@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="height" placeholder="Insert Height">
+    <input type="text" id="weight" placeholder="Insert Weight">
+    <button onclick="bmiBTN()" >Calculate</button>
+    <div id="result"></div>
+    <script>
+        function bmiBTN(){
+            var h = document.getElementById("height").value;
+            var w = document.getElementById("weight").value;
+            var result = Math.round(w / ((h/100)*(h/100))*100)/100;
+            document.getElementById("result").innerHTML =  "BMI = " +result;
+            
+            // if(result <= 18.5){
+            //     document.getElementById("result").innerHTML = "BMI = " + result + "<br>Too Thin" ;
+            // }else if(result >=25 ){
+            //     document.getElementById("result").innerHTML = "BMI = " + result + "<br>Too Thin" ;
+            // }else{
+            //     document.getElementById("result").innerHTML = "BMI = " + result + "<br>Too Thin" ;
+            // }
+
+            if(h == "" || w == "" || isNaN(h) || isNaN(w)){
+                document.getElementById("result").style.display = "none";
+                alert("Insert number of height with cm , weight with kg to begin calculation");
+            }else{
+                document.getElementById("result").style.display = "block";
+                
+            }
+
+        }
+    </script>
+</body>
+</html>
