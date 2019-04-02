@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- cdnjs > 搜尋 jquery 最新版本 > 複製 link > 貼上 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <!-- jquery 的script 可以擺上面 , 建議 script 都擺元素的下面-->
+
+    <h1 id="title">Title</h1>
+    <p class="content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit aspernatur, cum excepturi
+        consequatur
+        velit non neque corporis quidem id quod.
+    </p>
+    <a href="#">link</a>
+
+    <script>
+        //$(document) 是指所有文檔
+        //$(document).ready() 是指所有文檔載入後
+        $(document).ready(function () {
+            $("#title").hide();
+        });
+
+        // $(function () {
+        //     $("h1").hide();
+        // });
+    </script>
+</body>
+
+</html>

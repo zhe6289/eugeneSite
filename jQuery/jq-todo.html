@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <input type="text" id="item">
+    <button id="btn">ADD</button>
+    <ul id="todos">
+        <li class="list">item01</li>
+    </ul>
+
+    <script>
+        $(document).ready(function () {
+            $("#btn").click(function () {
+                // var item = $("#item").val(); //val() 取值
+                var item = $.trim($("#item").val()); //trim 自動刪除空格 val() 取值 
+                if (item == "") {
+                    return;//如果 item 是沒輸入值就 return 中斷
+                }
+                $("#todos").append("<li>" + item + "</li>");
+                $("#todos").find("li").attr("class", "list"); //attr("class","list") 增加css class= 名為 "list"
+                $("#item").val(""); //val("") 裡面的值歸 " "
+            })
+        });
+
+        // $("#todos").on() 意思同等於 javaScript 的 addEventListener
+        $("#todos").on("click", "li", function () {
+            if (confirm("確認刪除？")) {
+                $(this).fadeOut(function () {
+                    $(this).remove();
+                });
+            };
+        });
+
+    </script>
+</body>
+
+</html>

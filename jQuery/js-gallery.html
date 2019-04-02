@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>js-gallery</title>
+    <style>
+        .thumb{
+            width: 150px;
+        }
+
+        #gallery{
+            width: 600px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="gallery">
+        <img src="images/4041801_500.jpg" alt="" id="photo">
+    </div>
+    <div id="thumbs">
+        <img src="images/4041801_500.jpg" alt="" class="thumb">
+        <img src="images/4041802_500.jpg" alt="" class="thumb">
+        <img src="images/4041803_500.jpg" alt="" class="thumb">
+        <img src="images/4041804_500.jpg" alt="" class="thumb">
+    </div>
+
+    <script>
+        var photo = document.getElementById("photo");
+        var thumb = document.querySelectorAll(".thumb");
+        thumb.forEach(function (t) {
+            t.addEventListener("click", function () {
+                var setPhoto = this.getAttribute("src");
+                photo.setAttribute("src",setPhoto);
+            });
+        });
+
+        
+        // let photo = document.getElementById("photo");
+        // let thumb = document.querySelectorAll(".thumb");
+        // thumb.forEach(function(t){
+        //     t.addEventListener("click",function(){
+        //         let newPhoto = this.getAttribute("src");
+        //         photo.setAttribute("src",newPhoto);
+        //     })
+        // })
+    
+
+
+    </script>
+</body>
+
+</html>

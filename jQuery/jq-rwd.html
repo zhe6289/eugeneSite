@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .full-width {
+            width: 100%;
+        }
+
+        .fixed-width {
+            width: 100%;
+            margin: auto;
+        }
+
+        nav {
+            background-color: black;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: rgb(207, 207, 207);
+            padding: 0 15px;
+            line-height: 60px;
+            font-size: 20px;
+        }
+
+        /* .logo {
+            float: left;
+        } */
+
+        .menu {
+            /* float: right; */
+            display: none;
+        }
+
+        .menu li {
+            list-style: none;
+        }
+
+        .hamburger {
+            float: right;
+            display: block;
+        }
+
+        @media screen and (min-width:1200px) {
+            .fixed-width {
+                width: 1200px;
+            }
+
+            nav {
+                height: 60px;
+            }
+
+            nav a {
+                line-height: 60px;
+            }
+
+            .logo {
+                float: left;
+            }
+
+            .menu {
+                float: right;
+                display: block;
+            }
+
+            .menu li {
+                float: left;
+            }
+
+            .hamburger {
+                /* float: right; */
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="full-width">
+        <div class="fixed-width">
+            <div class="hamburger">
+                <a href="#"><i class="fas fa-hamburger fa-lg"></i></a>
+            </div>
+            <div class="logo">
+                <a href="#">LOGO</a>
+            </div>
+            <div class="menu">
+                <ul>
+                    <li><a href="#">ABOUT</a></li>
+                    <li><a href="#">PRODUCTS</a></li>
+                    <li><a href="#">SERVICE</a></li>
+                    <li><a href="#">WORKS</a></li>
+                    <li><a href="#">CONTACT</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <script>
+        $(document).ready(function(){
+            $(".hamburger").click(function(){
+                $(".menu").toggle(500);
+            })
+            //rwd 執行一次顯示 menu，否則 toggle 後 menu 會消失
+            $(window).resize(function(){ 
+                var w = $(window).width();
+                if (w >= 1200){
+                    $(".menu").show();
+                }else{
+                    $(".menu").hide();
+                }
+            })
+        })
+    </script>
+</body>
+
+</html>

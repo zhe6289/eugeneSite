@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <style>
+        .thumb{
+            width: 150px;
+        }
+
+        #gallery{
+            width: 600px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="gallery">
+        <img src="images/4041801_500.jpg" alt="" id="photo">
+    </div>
+    <div id="thumbs">
+        <img src="images/4041801_500.jpg" alt="" class="thumb">
+        <img src="images/4041802_500.jpg" alt="" class="thumb">
+        <img src="images/4041803_500.jpg" alt="" class="thumb">
+        <img src="images/4041804_500.jpg" alt="" class="thumb">
+    </div>
+
+    <script>
+        $(document).ready(function(){
+            $(".thumb").click(function(){
+                // console.log($(this).attr("src"));
+                var newPhoto = $(this).attr("src"); //寫成兩排
+                $("#photo").attr("src",newPhoto); // attr("getAttribute" , "setAttribute") 
+                // $("#photo").attr("src",$(this).attr("src")); //縮寫成一排
+            })
+        })
+    </script>
+</body>
+
+</html>

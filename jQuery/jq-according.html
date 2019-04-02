@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <style>
+        .container{
+            width: 600px;
+            margin: auto;
+        }
+
+        .according{
+            display: block;
+            color: black;
+        }
+        
+        .panel{
+            display: none;
+            padding: 15px 0;
+        }
+
+        .active{
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <a href="#" class="according">according</a>
+        <div class="panel">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione asperiores voluptatibus
+            itaque
+            eos, eum maiores laboriosam corrupti, omnis repudiandae sint quam. Asperiores maxime illum obcaecati,
+            voluptatem
+            veritatis, dicta ipsa adipisci numquam dignissimos ipsum cumque est ea placeat, sunt provident veniam!
+            Repellat
+            alias cupiditate praesentium possimus quo dolorum obcaecati adipisci cum!
+        </div>
+        <a href="#" class="according">according</a>
+        <div class="panel">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione asperiores voluptatibus
+            itaque
+            eos, eum maiores laboriosam corrupti, omnis repudiandae sint quam. Asperiores maxime illum obcaecati,
+            voluptatem
+            veritatis, dicta ipsa adipisci numquam dignissimos ipsum cumque est ea placeat, sunt provident veniam!
+            Repellat
+            alias cupiditate praesentium possimus quo dolorum obcaecati adipisci cum!
+        </div>
+        <a href="#" class="according">according</a>
+        <div class="panel">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione asperiores voluptatibus
+            itaque
+            eos, eum maiores laboriosam corrupti, omnis repudiandae sint quam. Asperiores maxime illum obcaecati,
+            voluptatem
+            veritatis, dicta ipsa adipisci numquam dignissimos ipsum cumque est ea placeat, sunt provident veniam!
+            Repellat
+            alias cupiditate praesentium possimus quo dolorum obcaecati adipisci cum!
+        </div>
+    </div>
+    
+    <script>
+        // $(".panel") 所有.panel都觸發到 toggle
+        // $(document).ready(function(){
+        //     $(".according").click(function(){
+        //         $(".panel").toggle();
+        //     })
+        // });
+
+        // $(this) 只有上一個class被點擊才會觸發
+        // $(this).next 就是javascript 的 .nextElementSibling同意思
+        $(document).ready(function(){
+            $(".according").click(function(){
+                // $(this).next().toggle(500);
+                // $(this).next().fadeToggle(500);
+                $(this).next().slideToggle(500)
+                $(this).toggleClass("active"); // toggleClass 是增加 class 元素
+            })
+        });
+    </script>
+</body>
+
+</html>

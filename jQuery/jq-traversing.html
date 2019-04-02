@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <h1 id="title">Title</h1>
+    <div class="container">
+        <p class="content">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Blanditiis laudantium aspernatur ipsum sapiente
+            molestias? Deserunt laudantium fugiat autem facere. Id!
+        </p>
+        <ul>
+            <li><a href="#">link1</a></li>
+            <li><a href="#">link2</a></li>
+            <li><a href="#">link3</a></li>
+            <li><a href="#">link4</a></li>
+        </ul>
+    </div>
+    <a href="#" class="btn">another link</a>
+
+    <script>
+        $(document).ready(function(){
+            var x = $(".container").children("ul"); //container 的 子元素
+            var x = $(".container").find("li");//container 的所有子元素
+            var x = $(".container").siblings("a");//container 的同輩元素
+            var x = $("li").eq(1).text();//li 的同輩同元素
+            var x = $("li").parent();//li 的父元素
+            var x = $("li").parents();//li 的父祖父....以上的元素
+            var x = $("li").closest("div")//closest 指定元素
+            console.log(x);
+        });
+    </script>
+    
+</body>
+
+</html>

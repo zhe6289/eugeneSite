@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        nav {
+            width: 100%;
+            background-color: black;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav a {
+            display: block;
+            text-decoration: none;
+            color: white;
+            margin: 0 15px;
+        }
+
+        #about {
+            height: 1200px;
+            background-color: rgb(255, 174, 0);
+        }
+
+        #product {
+            height: 1200px;
+            background-color: rgb(238, 255, 0);
+        }
+
+        #service {
+            height: 1200px;
+            background-color: rgb(72, 255, 0);
+        }
+
+        #contact {
+            height: 1200px;
+            background-color: rgb(0, 247, 255);
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <a href="#">About</a>
+        <a href="#">Product</a>
+        <a href="#">Service</a>
+        <a href="#">Contact</a>
+    </nav>
+    <div id="about"></div>
+    <div id="product"></div>
+    <div id="service"></div>
+    <div id="contact"></div>
+
+    <script>
+        $(document).ready(function () {
+            var a = $("#about").offset().top; //offset 是 top 和 left 的值
+            var p = $("#product").offset().top;
+            var s = $("#service").offset().top;
+            var c = $("#contact").offset().top;
+
+            $("nav").find("a").eq(0).click(function () { //animate scrollTop 滑到指定高度
+                $("html,body").animate({
+                    scrollTop: a
+                });
+            })
+            $("nav").find("a").eq(1).click(function () {
+                $("html,body").animate({
+                    scrollTop: p
+                });
+            })
+            $("nav a:nth-of-type(3)").click(function () {
+                $("html,body").animate({
+                    scrollTop: s
+                });
+            })
+            $("nav a:nth-of-type(4)").click(function () {
+                $("html,body").animate({
+                    scrollTop: c
+                });
+            })
+        });
+    </script>
+</body>
+
+</html>

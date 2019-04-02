@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <style>
+        .container{
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .box{
+            border: 1px solid black;
+            padding: 15px;
+            margin: 15px;
+        }
+
+        .loading{
+            animation: loading 2s infinite;
+        }
+        @keyframes loading{
+            from{color:#000;}
+            to{color:#fff}
+        }
+    </style>
+</head>
+<body>
+    <div class="container"></div>
+    <!-- https://data.gov.tw/datasets/search?qs=tid%3A6410%20&order=downloadcount&page=1 -->
+    <script>
+        $(document).ready(function(){
+            $.ajax({
+                url:"https://opendata.epa.gov.tw/ws/Data/AQI/?$format=json",
+                dataType:"jsonp",
+                beforeSend:function(){
+                    $(".container").append("<div class='loading'>Loading......</div>");
+                },
+                success:function(e){
+                    $(".loading").hide();
+                    e.forEach(function(data){
+                        // console.log("地區 : "+ data.SiteName);
+                        // console.log("CO : " + data.CO);
+                        // console.log("O3 : " + data.O3);
+
+                        var c = "<div class='box'>"
+                            c = c + "<div>地區："+ data.SiteName + "</div>"
+                            c = c + "<div>一氧化碳ppm："+ data.CO + "</div>"
+                            c = c + "<div>細懸浮微粒μg／m3："+ data["PM2.5"] + "</div>"
+
+                            $(".container").append(c);
+                    })
+                },
+                error:function(){
+
+                }
+            })
+        })    
+    </script>
+</body>
+</html>
